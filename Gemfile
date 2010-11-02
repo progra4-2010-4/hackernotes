@@ -28,3 +28,11 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+#to use autotest cf http://ph7spot.com/musings/getting-started-with-autotest#test_notifier_plugin_linux_and_windows
+group :development do 
+  gem 'autotest', '4.3.2'
+  gem 'autotest-rails-pure', '4.1.0'
+  gem 'redgreen'
+  gem 'test_notifier'
+end
