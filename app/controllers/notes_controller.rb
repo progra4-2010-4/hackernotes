@@ -6,7 +6,8 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @notes }
+      format.xml  { render :xml  => @notes }
+      format.json { render :json => @notes }
     end
   end
 
