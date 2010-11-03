@@ -4,6 +4,7 @@ class StaticControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_select "title", "Home | Hackernotes"
+    assert_select "h1", "Hackernotes"
     assert_select "a", "Notas"
     assert_response :success
   end
