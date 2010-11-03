@@ -1,0 +1,2 @@
+require 'redgreen/autotest'
+require "test_notifier/runner/autotest"
