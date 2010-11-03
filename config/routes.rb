@@ -1,6 +1,9 @@
 Hackernotes::Application.routes.draw do
-  resources :notes
+  get "static/index"
 
+  resources :notes
+  #match "/" => "static#index"
+  root :to => "static#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
