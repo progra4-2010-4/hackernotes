@@ -7,6 +7,10 @@ gem 'rails', '3.0.1'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
 
+group :development, :test do 
+  gem 'redgreen'
+end
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -28,3 +32,5 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+
