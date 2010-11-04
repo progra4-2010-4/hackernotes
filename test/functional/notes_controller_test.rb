@@ -1,6 +1,6 @@
 require 'test_helper'
-
 class NotesControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
   setup do
     @note = notes(:one)
   end

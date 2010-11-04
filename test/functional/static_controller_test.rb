@@ -1,6 +1,7 @@
 require 'test_helper'
-
+include Devise::TestHelpers
 class StaticControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
   test "should get index" do
     get :index
     assert_select "title", "Home | Hackernotes"
