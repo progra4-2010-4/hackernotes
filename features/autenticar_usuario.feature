@@ -15,9 +15,9 @@ Característica: Autenticar usuarios
         Cuando voy a la página de registro
         Y completo "Email" con "john@galt.com"
         Y completo "Password" con "foobarbaz"
-        Y completo "Password Confirmation" con "foobarbaz"
-        Y apreto "Sign Up"
-        Entonces debería ver "successfully signed up"
+        Y completo "Password confirmation" con "foobarbaz"
+        Y apreto "Sign up"
+        Entonces debería ver "signed up successfully"
         Y debería ver "john@galt.com"
 
     Escenario: Una persona autenticada entra
