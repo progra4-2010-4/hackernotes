@@ -36,3 +36,8 @@ group :development, :test do
   gem 'redgreen'
   gem 'test_notifier'
 end
+
+group :test do 
+  gem 'cucumber-rails'  
+  gem 'capybara'
+end
