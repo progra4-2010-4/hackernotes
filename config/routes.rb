@@ -1,4 +1,6 @@
 Hackernotes::Application.routes.draw do
+  devise_for :users
+
   get "static/index"
 
   resources :notes

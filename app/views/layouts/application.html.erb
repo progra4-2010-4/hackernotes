@@ -7,6 +7,18 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+  <header>
+  <h1><%= link_to "Hacernotes", root_path  %></h1>
+  <nav>
+  <%if user_signed_in?%>
+    <%=current_user.email%>
+    <%=link_to "Logout", destroy_user_session_path %>
+  <%else%>
+    <%=link_to "Login",  new_user_session_path%>
+    <%=link_to "Register",  new_user_registration_path%>
+  <%end%>
+  </nav>
+  </header>
  <p class="notice"><%= notice %></p>
  <p class="alert"><%= alert %></p>
 
