@@ -14,6 +14,11 @@ group :development, :test do
   gem 'redgreen'
   gem 'test_notifier'
 end
+gem 'devise'
+group :test do
+  gem 'cucumber-rails'
+  gem 'capybara'
+end
 # Use unicorn as the web server
 # gem 'unicorn'
 
