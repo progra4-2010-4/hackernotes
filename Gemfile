@@ -13,6 +13,7 @@ group :development, :test do
   gem 'autotest-rails-pure', '4.1.0'
   gem 'redgreen'
   gem 'test_notifier'
+  gem 'annotate-models', '~> 1.0.4'
 end
 gem 'devise'
 group :test do
