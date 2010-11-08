@@ -15,7 +15,7 @@ class NotesController < ApplicationController
   # GET /notes/1.xml
   def show
     @note = Note.find(params[:id])
-
+  
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @note }
@@ -42,7 +42,7 @@ class NotesController < ApplicationController
   # POST /notes.xml
   def create
     @note = Note.new(params[:note])
-
+    @note.user = current_user
     respond_to do |format|
       if @note.save
         format.html { redirect_to(@note, :notice => 'Note was successfully created.') }
@@ -58,7 +58,7 @@ class NotesController < ApplicationController
   # PUT /notes/1.xml
   def update
     @note = Note.find(params[:id])
-
+    @note.user = current_user
     respond_to do |format|
       if @note.update_attributes(params[:note])
         format.html { redirect_to(@note, :notice => 'Note was successfully updated.') }

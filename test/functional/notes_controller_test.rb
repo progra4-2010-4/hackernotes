@@ -4,6 +4,7 @@ class NotesControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   setup do
     @note = notes(:one)
+    sign_in users :lfborjas
   end
 
   test "should get index" do

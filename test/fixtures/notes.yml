@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20101104141314
+# Schema version: 20101108141900
 #
 # Table name: notes
 #
@@ -8,6 +8,7 @@
 #  content    :text
 #  created_at :datetime
 #  updated_at :datetime
+#  user_id    :integer
 #
 
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
