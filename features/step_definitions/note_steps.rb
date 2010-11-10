@@ -28,3 +28,9 @@ end
 Entonces /^debería ver las siguientes notas:$/ do |tabla_esperada|
     tabla_esperada.diff!(tableish('table tr', 'td,th'))
 end
+
+Cuando /^quiero editar cualquier nota de "([^"]*)"$/ do |correo|
+  u = User.find_by_email(correo)
+  visit edit_note_path(u.notes.first)
+end
+

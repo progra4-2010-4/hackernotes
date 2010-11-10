@@ -38,7 +38,7 @@ Característica: gestionar notas
 
     Esquema del escenario: editar notas 
         Dado que estoy autenticado con el correo "<correo>" y el password "<password>"
-        Cuando voy a la página de editar una nota de "<usuario>"
+        Cuando quiero editar cualquier nota de "<usuario>"
         Entonces <acción>
 
         Ejemplos:
