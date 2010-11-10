@@ -22,6 +22,10 @@ module NavigationHelpers
       "/users/sign_up"
     when /login/
       "/users/sign_in"
+    when /la página de notas de "([^"]*)"$/
+      user_notes_path($1)
+    when /la página de agregar nota/
+      new_note_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

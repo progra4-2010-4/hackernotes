@@ -21,36 +21,38 @@ Característica: gestionar notas
         Dado que estoy autenticado con el correo "ragnar@dann.net" y el password "foobar"
         Cuando voy a la página raíz
         Entonces debería estar en la página de agregar nota
-        Y debería ver "view all my notes"
+
 
     Esquema del escenario: ver o esconder notas de usuarios
         Dado que estoy autenticado con el correo "<correo>" y el password "<password>"
-        Cuando voy a la página de notas de "<usuario>"
-        Entonces <acción>
+        Cuando visito la página de notas de "<usuario>"
+        Entonces mostrame la página
+        Y <acción>
 
         Ejemplos:
             | correo            | password    | usuario           | acción |
             | ragnar@dann.net   | foobar      | ragnar@dann.net   | debería ver "Ragnar's notes"   |
             | dagny@taggart.com | supersecret | dagny@taggart.com | debería ver "Dagny's notes"    |
             | ragnar@dann.net   | foobar      | dagny@taggart.com | no debería ver "Dagny's notes" |
-            |                   |             | ragnar@dann.net   | no debería ver "Ragnar's notes"|
+            |                   |             | ragnar@dann.net   | no debería ver "Ragnar's notes"  |
+
 
 
     Esquema del escenario: editar notas 
         Dado que estoy autenticado con el correo "<correo>" y el password "<password>"
-        Cuando voy a la página de editar una nota de "<usuario>"
+        Cuando quiero editar cualquier nota de "<usuario>"
         Entonces <acción>
 
         Ejemplos:
             | correo            | password    | usuario           | acción |
-            | ragnar@dann.net   | foobar      | ragnar@dann.net   | debería ver "Edit note"   |
-            | dagny@taggart.com | supersecret | dagny@taggart.com | debería ver "Edit note "    |
-            | ragnar@dann.net   | foobar      | dagny@taggart.com | no debería ver "Edit note" |
-            |                   |             | ragnar@dann.net   | no debería ver "Edit note"|
+            | ragnar@dann.net   | foobar      | ragnar@dann.net   | debería ver "Editing note"   |
+            | dagny@taggart.com | supersecret | dagny@taggart.com | debería ver "Editing note "    |
+            | ragnar@dann.net   | foobar      | dagny@taggart.com | no debería ver "Editing note" |
+            |                   |             | ragnar@dann.net   | no debería ver "Editing note"|
 
     Escenario: borrar mis notas
         Dado que estoy autenticado con el correo "dagny@taggart.com" y el password "supersecret"
-        Y que voy a la página de notas de "dagny@taggart.com"
+        Y que visito la página de notas de "dagny@taggart.com"
         Y borro la 3era nota
         Entonces debería ver las siguientes notas:
             | title | content | 
