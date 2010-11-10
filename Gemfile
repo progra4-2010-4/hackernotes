@@ -19,6 +19,7 @@ gem 'devise'
 group :test do
   gem 'cucumber-rails'
   gem 'capybara'
+  gem 'launchy'
 end
 # Use unicorn as the web server
 # gem 'unicorn'

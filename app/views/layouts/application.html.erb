@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-  <h1><%= link_to "Hacernotes", root_path  %></h1>
+  <h1><%= link_to "Hackernotes", root_path  %></h1>
   <nav>
   <%if user_signed_in?%>
     <%=current_user.email%>
@@ -19,8 +19,8 @@
   <%end%>
   </nav>
   </header>
- <p class="notice"><%= notice %></p>
- <p class="alert"><%= alert %></p>
+ <p class="notice"><%= flash[:notice] %></p>
+ <p class="alert"><%= flash[:alert] %></p>
 
 <%= yield %>
 
