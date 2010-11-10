@@ -7,9 +7,6 @@ class NotesController < ApplicationController
     #en vez de escribirlo como arriba, usar mejor la asociación:
     @notes = current_user.notes.order "created_at DESC"
     @user = current_user
-    unless @notes.first.nil?
-      return redirect_to root_path unless @notes.first.user  == current_user
-    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml  => @notes }
@@ -23,7 +20,6 @@ class NotesController < ApplicationController
     #@note = Note.find(params[:id])
     #es mejor restringir: http://guides.rubyonrails.org/security.html#privilege-escalation
     @note = current_user.notes.find params[:id]
-    return redirect_to root_path unless !@note.nil? && @note.user == current_user
 
     respond_to do |format|
       format.html # show.html.erb
@@ -45,12 +41,7 @@ class NotesController < ApplicationController
   # GET /notes/1/edit
   def edit
     #@note = Note.find(params[:id])
-    begin
-      @note = current_user.notes.find params[:id]
-    rescue
-      return redirect_to root_path
-    end
-    return redirect_to root_path unless !@note.nil? && @note.user == current_user
+    @note = current_user.notes.find params[:id]
   end
 
   # POST /notes
@@ -91,8 +82,7 @@ class NotesController < ApplicationController
   def destroy
     #@note = Note.find(params[:id])
     @note = current_user.notes.find params[:id]
-    @note.destroy unless @note.nil?
-    return redirect_to root_path unless !@note.nil? && @note.user == current_user
+    @note.destroy 
     respond_to do |format|
       format.html { redirect_to(notes_url) }
       format.xml  { head :ok }

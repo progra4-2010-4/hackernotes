@@ -35,12 +35,12 @@ class NotesControllerTest < ActionController::TestCase
   test "should not show unexistent notes" do 
     #uso Note.last.id * 2 para asegurarme que sea un id que no existe
     get :show, :id => Note.last.id * 2
-    assert_redirected_to notes_path
+    assert_response :missing
   end
 
   test "should not show other's notes" do 
     get :show, :id => @another.to_param 
-    assert_redirected_to notes_path
+    assert_response :missing
   end
 
   test "should get edit" do
@@ -50,12 +50,12 @@ class NotesControllerTest < ActionController::TestCase
   
   test "should not get unexistent edit" do 
     get :edit, :id => Note.last.id * 2
-    assert_redirected_to notes_path
+    assert_response :missing
   end
 
   test "should not get another's edit" do 
     get :edit, :id => @another.to_param
-    assert_redirected_to notes_path
+    assert_response :missing
   end
 
   test "should update note" do
@@ -65,12 +65,12 @@ class NotesControllerTest < ActionController::TestCase
 
   test "should not update unexistent note" do 
     put :update, :id => Note.last.id * 2, :note => @note.attributes
-    assert_redirected_to notes_path
+    assert_response :missing
   end
 
   test "should not update another's notes" do 
     put :update, :id => @another.to_param, :note => @note.attributes
-    assert_redirected_to notes_path
+    assert_response :missing
   end
 
   test "should destroy note" do
