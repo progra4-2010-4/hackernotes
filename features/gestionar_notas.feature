@@ -15,7 +15,7 @@ Característica: gestionar notas
             | soy un contenido XYZ   | tengo título |  ragnar@dann.net   |
             | soy otro contenido ABC |              |  dagny@taggart.com |
             | segunda nota de ella   | sip, segunda |  dagny@taggart.com |
-            | soy algo más           | salgo primera|  dagny@taggatt.com |
+            | soy algo más           | salgo primera|  dagny@taggart.com |
 
     Escenario: entrar directamente a agregar notas
         Dado que estoy autenticado con el correo "ragnar@dann.net" y el password "foobar"
@@ -26,8 +26,7 @@ Característica: gestionar notas
     Esquema del escenario: ver o esconder notas de usuarios
         Dado que estoy autenticado con el correo "<correo>" y el password "<password>"
         Cuando visito la página de notas de "<usuario>"
-        Entonces mostrame la página
-        Y <acción>
+        Entonces <acción>
 
         Ejemplos:
             | correo            | password    | usuario           | acción |
@@ -36,7 +35,13 @@ Característica: gestionar notas
             | ragnar@dann.net   | foobar      | dagny@taggart.com | no debería ver "Dagny's notes" |
             |                   |             | ragnar@dann.net   | no debería ver "Ragnar's notes"  |
 
-
+    Escenario: ver mis propias notas, pero no las de otros
+        Dado que estoy autenticado con el correo "dagny@taggart.com" y el password "supersecret"
+        Cuando visito la página de notas de "dagny@taggart.com"
+        Entonces debería ver "soy otro"
+        Y debería ver "sip, segunda"
+        Y debería ver "salgo primera"
+        Pero no debería ver "tengo título"
 
     Esquema del escenario: editar notas 
         Dado que estoy autenticado con el correo "<correo>" y el password "<password>"
@@ -54,8 +59,9 @@ Característica: gestionar notas
         Dado que estoy autenticado con el correo "dagny@taggart.com" y el password "supersecret"
         Y que visito la página de notas de "dagny@taggart.com"
         Y borro la 3era nota
-        Entonces debería ver las siguientes notas:
-            | title | content | 
+        Entonces mostrame la página
+        Y debería ver las siguientes notas:
+            | Title | Content | 
             | salgo primera | soy algo más |
             | sip, segunda  | segunda nota de ella |
 

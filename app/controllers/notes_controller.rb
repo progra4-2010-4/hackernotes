@@ -3,7 +3,7 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.xml
   def index
-    @notes = Note.where(:user_id=> current_user.id)
+    @notes = Note.where(:user_id=> current_user.id).order("created_at DESC")
     @user = current_user
     unless @notes.first.nil?
       return redirect_to root_path unless @notes.first.user  == current_user
