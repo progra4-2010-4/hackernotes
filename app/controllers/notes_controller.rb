@@ -1,9 +1,13 @@
 class NotesController < ApplicationController
+  before_filter :authenticate_user!
   # GET /notes
   # GET /notes.xml
   def index
-    @notes = Note.all
-
+    @notes = Note.where(:user_id=> current_user.id)
+    @user = current_user
+    unless @notes.first.nil?
+      return redirect_to root_path unless @notes.first.user  == current_user
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml  => @notes }
@@ -15,7 +19,9 @@ class NotesController < ApplicationController
   # GET /notes/1.xml
   def show
     @note = Note.find(params[:id])
-  
+
+    return redirect_to root_path unless @note.user == current_user
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @note }
@@ -36,6 +42,7 @@ class NotesController < ApplicationController
   # GET /notes/1/edit
   def edit
     @note = Note.find(params[:id])
+    return redirect_to root_path unless @note.user == current_user
   end
 
   # POST /notes

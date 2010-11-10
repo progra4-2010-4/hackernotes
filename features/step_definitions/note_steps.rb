@@ -14,13 +14,17 @@ Dado /^que existen las siguientes notas:$/ do |notas|
   end
 end
 
-Dado /^que voy a la página de notas de "([^"]*)"$/ do |correo|
+Dado /^que visito la página de notas de "([^"]*)"$/ do |correo|
   visit user_notes_path(User.find_by_email(correo))
 end
 
-Dado /^borro la (\d+)(?:er(a)?) nota$/ do |pos|
+Cuando /^visito la página de notas de "([^"]*)"$/ do |correo|
+  visit user_notes_path(User.find_by_email(correo))
+end
+
+Dado /^borro la (\d+)(?:er|era) nota$/ do |pos|
   visit notes_path
-  within("table tr:nth-child(#{pos.to_i+1})") do
+  within("table tr:nth-child(#{pos.to_i})") do
     click_link "Destroy"
   end
 end

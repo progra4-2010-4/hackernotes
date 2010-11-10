@@ -1,6 +1,8 @@
 Hackernotes::Application.routes.draw do
-  devise_for :users
-
+  devise_for :users  
+  resources(:users, :only=>[:show]) do 
+    resources :notes, :only=>[:index, :show]
+  end
   get "static/index"
 
   resources :notes
