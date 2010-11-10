@@ -16,7 +16,10 @@
 one:
   title: MyString
   content: MyText
+  user: lfborjas
 
+#al referirse a la etiqueta en otra fixture, la nota es relacionada
 two:
   title: MyString
   content: MyText
+  user: johndoe
