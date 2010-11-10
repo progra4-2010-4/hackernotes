@@ -21,7 +21,6 @@ Característica: gestionar notas
         Dado que estoy autenticado con el correo "ragnar@dann.net" y el password "foobar"
         Cuando voy a la página raíz
         Entonces debería estar en la página de agregar nota
-        Y debería ver "view all my notes"
 
     Esquema del escenario: ver o esconder notas de usuarios
         Dado que estoy autenticado con el correo "<correo>" y el password "<password>"
