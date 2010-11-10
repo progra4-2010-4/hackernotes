@@ -3,7 +3,9 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.xml
   def index
-    @notes = Note.where(:user_id=> current_user.id).order("created_at DESC")
+    #@notes = Note.where(:user_id=> current_user.id).order("created_at DESC")
+    #en vez de escribirlo como arriba, usar mejor la asociación:
+    @notes = current_user.notes.order "created_at DESC"
     @user = current_user
     unless @notes.first.nil?
       return redirect_to root_path unless @notes.first.user  == current_user
@@ -18,9 +20,10 @@ class NotesController < ApplicationController
   # GET /notes/1
   # GET /notes/1.xml
   def show
-    @note = Note.find(params[:id])
-
-    return redirect_to root_path unless @note.user == current_user
+    #@note = Note.find(params[:id])
+    #es mejor restringir: http://guides.rubyonrails.org/security.html#privilege-escalation
+    @note = current_user.notes.find params[:id]
+    return redirect_to root_path unless !@note.nil? && @note.user == current_user
 
     respond_to do |format|
       format.html # show.html.erb
@@ -41,8 +44,13 @@ class NotesController < ApplicationController
 
   # GET /notes/1/edit
   def edit
-    @note = Note.find(params[:id])
-    return redirect_to root_path unless @note.user == current_user
+    #@note = Note.find(params[:id])
+    begin
+      @note = current_user.notes.find params[:id]
+    rescue
+      return redirect_to root_path
+    end
+    return redirect_to root_path unless !@note.nil? && @note.user == current_user
   end
 
   # POST /notes
@@ -64,7 +72,8 @@ class NotesController < ApplicationController
   # PUT /notes/1
   # PUT /notes/1.xml
   def update
-    @note = Note.find(params[:id])
+    #@note = Note.find(params[:id])
+    @note = current_user.notes.find params[:id]
     @note.user = current_user
     respond_to do |format|
       if @note.update_attributes(params[:note])
@@ -80,9 +89,10 @@ class NotesController < ApplicationController
   # DELETE /notes/1
   # DELETE /notes/1.xml
   def destroy
-    @note = Note.find(params[:id])
-    @note.destroy
-    return redirect_to root_path unless @note.user == current_user
+    #@note = Note.find(params[:id])
+    @note = current_user.notes.find params[:id]
+    @note.destroy unless @note.nil?
+    return redirect_to root_path unless !@note.nil? && @note.user == current_user
     respond_to do |format|
       format.html { redirect_to(notes_url) }
       format.xml  { head :ok }
