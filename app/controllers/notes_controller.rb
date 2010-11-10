@@ -82,7 +82,7 @@ class NotesController < ApplicationController
   def destroy
     @note = Note.find(params[:id])
     @note.destroy
-
+    return redirect_to root_path unless @note.user == current_user
     respond_to do |format|
       format.html { redirect_to(notes_url) }
       format.xml  { head :ok }
