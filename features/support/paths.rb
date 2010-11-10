@@ -10,8 +10,14 @@ module NavigationHelpers
 
     when /the home\s?page/
       '/'
+    when /the new note page/
+      new_note_path
+
     when /la página raíz/
       '/'
+    when /the new note page/
+      new_note_path
+
     when /la página de registro/
       "/users/sign_up"
     when /login/
