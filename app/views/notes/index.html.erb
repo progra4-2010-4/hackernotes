@@ -8,10 +8,11 @@
     <th></th>
     <th></th>
   </tr>
-
+  
+<div id="preview"></div>
 <% @notes.each do |note| %>
   <tr>
-    <td><%= note.title %></td>
+    <td><%= link_to note.title, note, :remote=>true%></td>
     <td><%= note.content %></td>
     <td><%= link_to 'Show', note %></td>
     <td><%= link_to 'Edit', edit_note_path(note) %></td>
