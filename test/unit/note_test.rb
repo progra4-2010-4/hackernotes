@@ -18,6 +18,12 @@ class NoteTest < ActiveSupport::TestCase
 
     assert nota.save
     assert_equal nota.title, contenido[0..Note::TitleLength]
+    
+    otra = Note.new :content => contenido
+    nota.user = users :lfborjas
+    nota.title = " "
+    assert nota.save
+    assert_equal contenido[0..Note::TitleLength], nota.title 
 
   end
   

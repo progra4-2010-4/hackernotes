@@ -18,7 +18,7 @@ class Note < ActiveRecord::Base
   before_save :validar_titulo
 
   def validar_titulo 
-    self.title = self.content[0..TitleLength] if self.title.nil?
+    self.title = self.content[0..TitleLength] if self.title.blank?
   
   end
 end
