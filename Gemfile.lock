@@ -47,6 +47,7 @@ GEM
     celerity (0.8.2)
     childprocess (0.1.4)
       ffi (~> 0.6.3)
+    coderay (0.9.5)
     configuration (1.1.0)
     cucumber (0.9.4)
       builder (~> 2.1.2)
@@ -68,6 +69,7 @@ GEM
     gherkin (2.2.9)
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
+    hpricot (0.8.2)
     i18n (0.4.2)
     jquery-rails (0.2.5)
       rails (~> 3.0)
@@ -104,6 +106,7 @@ GEM
       rake (>= 0.8.4)
       thor (~> 0.14.0)
     rake (0.8.7)
+    rdiscount (1.6.5)
     redgreen (1.2.2)
     rubyzip (0.9.4)
     selenium-webdriver (0.0.29)
@@ -131,11 +134,14 @@ DEPENDENCIES
   autotest (= 4.3.2)
   autotest-rails-pure (= 4.1.0)
   capybara
+  coderay
   cucumber-rails
   devise
+  hpricot
   jquery-rails (~> 0.2.5)
   launchy
   rails (= 3.0.1)
+  rdiscount (~> 1.6.5)
   redgreen
   sqlite3-ruby
   test_notifier

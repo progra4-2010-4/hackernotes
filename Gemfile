@@ -22,6 +22,12 @@ group :test do
   gem 'capybara'
   gem 'launchy'
 end
+
+#for formatting
+gem 'rdiscount', '~> 1.6.5'
+gem 'coderay'
+gem 'hpricot'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
