@@ -16,6 +16,7 @@ group :development, :test do
   gem 'annotate-models', '~> 1.0.4'
 end
 gem 'devise'
+gem 'jquery-rails', '~> 0.2.5'
 group :test do
   gem 'cucumber-rails'
   gem 'capybara'
