@@ -11,14 +11,24 @@ class NoteTest < ActiveSupport::TestCase
     assert_equal nota.title, "título XYZ"
   end
 
-  test "que el título se asigne solo" do 
+  test "que el título se asigne solo si se obvia" do 
     contenido = "soy un contenido largo que tendrá título"
     nota = Note.new :content=> contenido
     nota.user = users :johndoe
 
     assert nota.save
-    assert_equal nota.title, contenido[0..Note::TitleLength]
+    assert_equal contenido[0..Note::TitleLength], nota.title
 
+  end
+
+  test "que el título se asigne solo si está vacío" do 
+    contenido = "soy un contenido largo que tendrá título"
+    nota = Note.new :content=> contenido
+    nota.user = users :johndoe
+    nota.title = ""
+    
+    assert nota.save
+    assert_equal contenido[0..Note::TitleLength], nota.title
   end
   
   test "que el usuario se asigne bien" do 

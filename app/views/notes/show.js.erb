@@ -1,1 +1,1 @@
-$("#preview").html("<%= escape_javascript(@note.content) %>");
+$("#preview").html("<%= escape_javascript(@note.render_formatted.html_safe) %>");
