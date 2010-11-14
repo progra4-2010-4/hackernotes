@@ -24,7 +24,7 @@ end
 
 Dado /^borro la (\d+)(?:er|era) nota$/ do |pos|
   visit notes_path
-  within("table tr:nth-child(#{pos.to_i+1})") do
+  within("table tr:nth-child(#{pos.to_i + 2})") do
     click_link "Destroy"
   end
 end

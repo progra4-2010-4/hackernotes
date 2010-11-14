@@ -61,7 +61,7 @@ Característica: gestionar notas
         Y borro la 3era nota
         Entonces mostrame la página
         Y debería ver las siguientes notas:
-            | Title | Content | 
-            | salgo primera | soy algo más |
-            | sip, segunda  | segunda nota de ella |
+            | Title |  
+            | salgo primera | 
+            | sip, segunda  | 
 
